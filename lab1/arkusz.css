@@ -1,0 +1,46 @@
+aside  {
+    /* Specyfikacja wyglądu */
+  }
+  footer {
+    /* Specyfikacja wyglądu */
+  }      
+  header {
+    /* Specyfikacja wyglądu */
+    background-color: #EFF;
+    border-color: #A8A8A8;
+    border: solid;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }    
+
+#animacja{
+    animation: anim 3s infinite forwards;
+}
+@keyframes anim
+{
+0% {position: relative; top:0;}
+50% {position: relative; top: 0px; transform: rotate(90deg)}
+100% {position: relative; top: 500px; transform: rotate(0deg)}
+}
+
+  main { 
+    /* Specyfikacja wyglądu */
+
+}
+  nav {
+    /* Specyfikacja wyglądu */
+    margin-left: 25px;
+    margin-right: 25px;
+
+  }
+  nav ul {
+    /* Specyfikacja wyglądu */
+
+  }
+  nav li {
+    /* Specyfikacja wyglądu */
+
+  }
+  /*polska dokumentacja repsonsywna do flowblade w oparciu o jakiś framework*
+  ikonki, panel nawigacyjny, /

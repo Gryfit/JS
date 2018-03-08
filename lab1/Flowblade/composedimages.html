@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    <style>
+        p{
+            margin-top: 10px;
+            margin-bottom: 10px; 
+            font-size: 20px;
+        }
+
+    </style>
+    <title>
+      Flowblade Documentation
+    </title>
+  </head>
+  <body>
+      <div class="jumbotron mb-0">
+        <div class="col-sm-8">
+          <img class="img-fluid" src="icon.png" alt="Flowblade"> 
+        </div>
+        </div>
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mt-0 mb-">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://jliljebl.github.io/flowblade/download.html">DOWNLOADS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">DOCS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://jliljebl.github.io/flowblade/features.html">FEATURES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://jliljebl.github.io/flowblade/info.html">ABOUT</a>
+              </li>
+              </ul>
+          
+          </nav>
+    <div class="row">
+
+      
+      <div class="col-sm-2">
+      <div class="sticky-top">
+          <button class="btn btn-defalut btn-block " data-toggle="collapse" data-target="#nav">
+              <span class="glyphicon glyphicon-menu-down"></span>Contents   
+            </button>
+        <nav id="nav" class="collapsabe bg-light navbar-light">
+        <ul class="navbar-nav flex-column ml-3">
+          <il class="nav-item">
+              <a class="nav-link" href="./index.html">
+            Introduction
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link " href="./basicediting.html">
+            Basic Editing
+              </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link " href="./edittools.html">
+            Edit Tools
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link active" href="./composedimages.html">
+            Creating Composited Images
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="#">
+            Filtering image and audio
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="#">  
+            Advanced Editing
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="#">  
+            Range Log
+            </a>
+          </il>
+          <il>
+              <a class="nav-link" href="#">
+              Proxy Editing
+              </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="#">  
+            Tools
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="#">  
+            Rendering
+            </a>
+          </il>
+        </ul>
+      </nav>
+      </div>
+    </div>
+      <div class="col-sm-10">
+      <div class="container mt-3">
+
+<div class="display-1">Creating Composited Images</div>
+
+<p>
+Flowblade Movie Editor uses Compositors to mix images from two different tracks.
+By combining multiple tracks and multiple Compositors complex composite images can be achieved.
+</p>
+
+
+<p class="display-4">Introduction</p>
+<p>
+Compositors have a Source track and a Destination track.</p>
+<p>
+ On the Timeline Compositor is displayed as a dark rectangular object that is displayed on top of two tracks. Source track is always the one above Compositor, but Destination track may be any of the tracks below it.
+</p>
+<p>
+Parameters defining the resulting composite are edited in the <b>Compositors</b> tab.
+</p>
+<p>
+There is a subtype of Compositors called Blenders.
+Blenders do the standard blends like Add, Softlight and Darken,
+but offer no transformations, nor any method to control the amount of blend.
+</p>
+
+<p class="display-4">Compositor Workflow</p>
+<ol>
+<li>Creating a Compositor
+<ul>
+<li> Click <b>Right Mouse</b> on any clip on tracks from V5 to V2 and select for example <b>Add Compositor -> Dissolve</b> or <b>Add Blender -> Softlight</b> from popupmenu to create a new Compositor.</li>
+</ul>
+<li>Trimmimg or Moving a Compositor</li>
+<ul>
+<li> To trim Compositor start and end points: Press and drag <b>Left Mouse</b> near either end of Compositor on Timeline.</li>
+<li> To move Compositor: Press and drag <b>Left Mouse</b> in the middle of Compositor on Timeline.</li>
+</ul>
+<li>Editing Compositor Parameters in Compositors Tab</li>
+<ul>
+<li> Double click Compositor with <b>Left Mouse</b>.</li>
+<li> Click <b>Right Mouse</b> on any Compositor and select Open In Compositor Editor</li>
+<li> Edit parameters using value editors.</li>
+</ul>
+<li>Deleting Compositor</li>
+<ul>
+<li> Click <b>Left Mouse</b> on any Compositor to select it and press <b>Delete</b> key.</li>
+</ul>
+</ol>
+
+<p class="display-4">Compositor are executed from top to bottom</p>
+<p>
+In Flowblade Movie Editor <b>the order of rendering is top-to-bottom</b>,
+instead of bottom-to-top like in Gimp or Photoshop.
+<br>
+<br>
+When attempting certain type of multilayer composites this yields results that seem unintuitive,
+unless the user is aware of rendering order of Compositors.
+</p>
+<p class="display-4">Rendering A Composited Frame</h4>
+<ol>
+<li>For each frame it is checked if there is a Compositor covering this frame on the top most track.</li>
+<li>If such Compositor is found, do composite on Destination track.</li>
+<li>Frame on Destination track is now altered and if that frame is used as source the altered version is used</li>
+<li>Check if frame on next track below has compositor and if Compositor is found render the composite image</li>
+<li>This is done for each track.</li>
+<li>Output image on is from the topmost track that has media on the frame and does not have a compostor on the frame.</li>
+</ol>
+
+<h3>EXAMPLE: Creating a 3-layer composite</h3>
+<p>
+In this example we demonstrate how top-to-bottom Compositor
+order affects compositing. We are trying to make word 'GO' apperar on top of 2-color
+background made by combining red and blue Color Clips using 'Free Stripes' wipe.
+</p>
+<p class="display-4">Media Items and desired result</h4>
+<p>
+To make alpha transparency work the GO.PNG graphic has to composited using 'Dissolve'.
+</p>
+<p>
+<i><b>Clips: RED and BLUE Color Clips and GO.PNG graphic with alpha transparency</b></i>
+</p>
+<img class="img-fluid" src="comp_clips.png">
+
+<p>
+<i><b>Desired result</b></i>
+</p>
+
+<img class="img-fluid" src="correct_comp.png">
+
+<p class="display-4">Gimp/Photoshop style layer order yields wrong result</h4>
+<p>
+Here we have arranged clips on the tracks as we would arrange layers in Gimp.
+</p>
+<p>
+<i><b>Gimp style layer order</b></i>
+</p>
+<img src="wrong_timeline.png">
+
+<p>
+What happens here is that first 'GO.PNG' is composited on 'RED' Color Clip, and the resulting image is composited using 'Free Stripes' wipe on top of 'BLUE' Color Clip. We get the wrong result.
+</p>
+<p>
+<i><b>Wrong result</b></i>
+</p>
+<img  class="img-fluid" src="wrong_comp.png">
+<p class="display-4">Correct layer order when compositing order is top-to-bottom</h4>
+<p>
+Here we have arranged clips in correct order for the desired result.
+</p>
+<p>
+<i><b>Correct layer order</b></i>
+</p>
+<img class="img-fluid" src="correct_timeline.png">
+<p>
+Here 'RED' Color Clip  is first composited using 'Free Stripes' wipe on 'BLUE' Color Clip. After that 'GO.PNG' is composited on top of the resulting image (that is already rendered on track V1) using 'Dissolve' to get final output image.
+</p>
+<p>
+<i><b>Destination track in 'Region' Compositor is V1, Source track is V3</b></i>
+</p>
+
+<img class="img-fluid" src="correct_dest.png">
+
+
+<p>
+<i><b>Desired result</b></i>
+</p>
+
+<img class="img-fluid" src="correct_comp.png">
+        </div>
+      </div>
+    </div>
+  </body>
