@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,6 @@
         <link href="css/styles.css" rel="stylesheet">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
     <script src="js/bootstrap.min.js"></script> 
     <title>
       Flowblade Documentation
@@ -50,7 +49,7 @@
         <nav id="nav" class="collapsabe bg-light navbar-light">
         <ul class="navbar-nav flex-column ml-3">
           <il class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link " href="./index.html">
             Introduction
             </a>
           </il>
@@ -65,27 +64,27 @@
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="./composedimages.html">
+              <a class="nav-link " href="./composedimages.html">
             Creating Composited Images
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="./filtering.html">
+              <a class="nav-link " href="./filtering.html">
             Filtering image and audio
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="./advancedediting.html">  
+              <a class="nav-link " href="./advancedediting.html">  
             Advanced Editing
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="rangelog.html">  
+              <a class="nav-link active" href="rangelog.html">  
             Range Log
             </a>
           </il>
           <il>
-              <a class="nav-link" href="proxyediting.html">
+              <a class="nav-link " href="proxyediting.html">
               Proxy Editing
               </a>
           </il>
@@ -105,15 +104,51 @@
     </div>
       <div class="col-sm-10">
       <div class="container mt-3">
+            <div class="display-4">Range Log</div>
 
-        <p class="display-4">Introduction</p>
-        <p>
-          Flowblade Movie Editor is a <b>multitrack non-linear video editor</b> for Linux.
-<br><br>
-          With Flowblade Movie Editor you can compose movies from video clips, audio clips and graphics files. Clips can be cut at the desired frames, filters can be added to clips, and you can create multilayer composite images using compositor objects.
-          <br><br>
-          In Flowblade clips are usually automatically placed tightly after the previous clip - or between two existing clips - when they are inserted on the timeline. Edits are fine tuned by trimming in and out points of clips, or by cutting and deleting parts of clips. 
-          </p>
+            <p>
+            Flowblade provides functionality save, name and manage <b>in point to out point ranges</b> on media items.
+            
+            <h3>Rationale</h3>
+            This functionality is mainly useful then there are <b>media items that contain multiple areas of interest</b> or if the user wants to save in and out points of an edit for later use.
+            </p>
+            <p>
+            A typical example use case for the feature would be:
+            </p>
+            <ol>
+            <li> User has a long clip of a speech delivered at some social function, congress, company event, etc.</li>
+            <li> User wants to mark and name the interesting parts of the speech</li>
+            </ol>
+            
+            <h3>Creating Range Log Items</h3>
+            <h4> With Clip Monitor</h4>
+            <ol>
+            <li>Add Media Item to Clip Monitor</li>
+            <li>Set Mark In and Mark Out points</li>
+            <li>Press 'Log Current marked Range' -button on the bottom left in the Range Log panel</li>
+            </ol>
+            <h4>Drag'n'Drop from Timeline</h4>
+            <ol>
+            <li>Drag a Clip from Timeline on top of Items list view in the Range Log panel</li>
+            </ol>
+            
+            
+            <h3> Adding Range Log items to Timeline</h3>
+            <h4>With buttons</h4>
+            <ul>
+            <li> Press 'Append displayed..." -button on the bottom right corner to append all Items as Clips on active Track</li>
+            <li> Press 'Insert selected..." -button next to bottom right corner button to insert all selected Items on active track at nearest cut from the currently displayed Timeline position</li>
+            </ul>
+            <h4>Drag'n'Drop into Timeline</h4>
+            <ul>
+            <li> Select a Range Log item and drag it into the desired position on Timeline</li>
+            </ul>
+            
+            <h3>Managing Range Log Items</h3>
+            <ul>
+            <li> Use top row drop down menu to select the displayed Items Group</li>
+            <li> Use the top left corner button drop down menu to create, rename and delete Items Groups</li>
+            </ul>
         </div>
       </div>
     </div>

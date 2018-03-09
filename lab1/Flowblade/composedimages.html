@@ -1,24 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-    <style>
-        p{
-            margin-top: 10px;
-            margin-bottom: 10px; 
-            font-size: 20px;
-        }
-
-    </style>
+    <script src="js/bootstrap.min.js"></script> 
     <title>
       Flowblade Documentation
     </title>
@@ -30,7 +21,7 @@
         </div>
         </div>
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mt-0 mb-">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mt-0 ">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="https://jliljebl.github.io/flowblade/download.html">DOWNLOADS</a>
@@ -52,23 +43,23 @@
       
       <div class="col-sm-2">
       <div class="sticky-top">
-          <button class="btn btn-defalut btn-block " data-toggle="collapse" data-target="#nav">
-              <span class="glyphicon glyphicon-menu-down"></span>Contents   
+          <button class="btn btn-defalut btn-block" data-toggle="collapse" data-target="#nav">
+            Contents
             </button>
         <nav id="nav" class="collapsabe bg-light navbar-light">
         <ul class="navbar-nav flex-column ml-3">
           <il class="nav-item">
-              <a class="nav-link" href="./index.html">
+              <a class="nav-link " href="./index.html">
             Introduction
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link " href="./basicediting.html">
+              <a class="nav-link" href="./basicediting.html">
             Basic Editing
               </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link " href="./edittools.html">
+              <a class="nav-link" href="./edittools.html">
             Edit Tools
             </a>
           </il>
@@ -78,32 +69,32 @@
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="./filtering.html">
             Filtering image and audio
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="#">  
+              <a class="nav-link" href="./advancedediting.html">  
             Advanced Editing
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="#">  
+              <a class="nav-link" href="rangelog.html">  
             Range Log
             </a>
           </il>
           <il>
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="proxyediting.html">
               Proxy Editing
               </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="#">  
+              <a class="nav-link" href="tools.html">  
             Tools
             </a>
           </il>
           <il class="nav-item">
-              <a class="nav-link" href="#">  
+              <a class="nav-link" href="rendering.html">  
             Rendering
             </a>
           </il>
@@ -114,7 +105,7 @@
       <div class="col-sm-10">
       <div class="container mt-3">
 
-<div class="display-1">Creating Composited Images</div>
+<div class="display-4">Creating Composited Images</div>
 
 <p>
 Flowblade Movie Editor uses Compositors to mix images from two different tracks.
@@ -122,7 +113,7 @@ By combining multiple tracks and multiple Compositors complex composite images c
 </p>
 
 
-<p class="display-4">Introduction</p>
+<h3>Introduction</h3>
 <p>
 Compositors have a Source track and a Destination track.</p>
 <p>
@@ -137,7 +128,7 @@ Blenders do the standard blends like Add, Softlight and Darken,
 but offer no transformations, nor any method to control the amount of blend.
 </p>
 
-<p class="display-4">Compositor Workflow</p>
+<h3>Compositor Workflow</h3>
 <ol>
 <li>Creating a Compositor
 <ul>
@@ -160,7 +151,7 @@ but offer no transformations, nor any method to control the amount of blend.
 </ul>
 </ol>
 
-<p class="display-4">Compositor are executed from top to bottom</p>
+<h3>Compositor are executed from top to bottom</h3>
 <p>
 In Flowblade Movie Editor <b>the order of rendering is top-to-bottom</b>,
 instead of bottom-to-top like in Gimp or Photoshop.
@@ -169,7 +160,7 @@ instead of bottom-to-top like in Gimp or Photoshop.
 When attempting certain type of multilayer composites this yields results that seem unintuitive,
 unless the user is aware of rendering order of Compositors.
 </p>
-<p class="display-4">Rendering A Composited Frame</h4>
+<h3>Rendering A Composited Frame</h3>
 <ol>
 <li>For each frame it is checked if there is a Compositor covering this frame on the top most track.</li>
 <li>If such Compositor is found, do composite on Destination track.</li>
@@ -185,29 +176,29 @@ In this example we demonstrate how top-to-bottom Compositor
 order affects compositing. We are trying to make word 'GO' apperar on top of 2-color
 background made by combining red and blue Color Clips using 'Free Stripes' wipe.
 </p>
-<p class="display-4">Media Items and desired result</h4>
+<h3>Media Items and desired result</h3>
 <p>
 To make alpha transparency work the GO.PNG graphic has to composited using 'Dissolve'.
 </p>
 <p>
 <i><b>Clips: RED and BLUE Color Clips and GO.PNG graphic with alpha transparency</b></i>
 </p>
-<img class="img-fluid" src="comp_clips.png">
+<img class="img-fluid" src="pics/comp_clips.png">
 
 <p>
 <i><b>Desired result</b></i>
 </p>
 
-<img class="img-fluid" src="correct_comp.png">
+<img class="img-fluid" src="pics/correct_comp.png">
 
-<p class="display-4">Gimp/Photoshop style layer order yields wrong result</h4>
+<h3>Gimp/Photoshop style layer order yields wrong result</h3>
 <p>
 Here we have arranged clips on the tracks as we would arrange layers in Gimp.
 </p>
 <p>
 <i><b>Gimp style layer order</b></i>
 </p>
-<img src="wrong_timeline.png">
+<img src="pics/wrong_timeline.png">
 
 <p>
 What happens here is that first 'GO.PNG' is composited on 'RED' Color Clip, and the resulting image is composited using 'Free Stripes' wipe on top of 'BLUE' Color Clip. We get the wrong result.
@@ -215,15 +206,15 @@ What happens here is that first 'GO.PNG' is composited on 'RED' Color Clip, and 
 <p>
 <i><b>Wrong result</b></i>
 </p>
-<img  class="img-fluid" src="wrong_comp.png">
-<p class="display-4">Correct layer order when compositing order is top-to-bottom</h4>
+<img  class="img-fluid" src="pics/wrong_comp.png">
+<h3>Correct layer order when compositing order is top-to-bottom</h3>
 <p>
 Here we have arranged clips in correct order for the desired result.
 </p>
 <p>
 <i><b>Correct layer order</b></i>
 </p>
-<img class="img-fluid" src="correct_timeline.png">
+<img class="img-fluid" src="pics/correct_timeline.png">
 <p>
 Here 'RED' Color Clip  is first composited using 'Free Stripes' wipe on 'BLUE' Color Clip. After that 'GO.PNG' is composited on top of the resulting image (that is already rendered on track V1) using 'Dissolve' to get final output image.
 </p>
@@ -231,15 +222,19 @@ Here 'RED' Color Clip  is first composited using 'Free Stripes' wipe on 'BLUE' C
 <i><b>Destination track in 'Region' Compositor is V1, Source track is V3</b></i>
 </p>
 
-<img class="img-fluid" src="correct_dest.png">
+<img class="img-fluid" src="pics/correct_dest.png">
 
 
 <p>
 <i><b>Desired result</b></i>
 </p>
 
-<img class="img-fluid" src="correct_comp.png">
+<img class="img-fluid" src="pics/correct_comp.png">
         </div>
       </div>
     </div>
+    <footer class="footer text-center bg-light navbar-light">
+        Flowblade Reference Guide v 2.0 19-3-2015.<br>
+        Page made by Bartek Tonia. 
+    </footer>
   </body>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <title>
+      Flowblade Documentation
+    </title>
+  </head>
+  <body>
+      <div class="jumbotron mb-0">
+        <div class="col-sm-8">
+          <img class="img-fluid" src="icon.png" alt="Flowblade"> 
+        </div>
+        </div>
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mt-0 ">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://jliljebl.github.io/flowblade/download.html">DOWNLOADS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">DOCS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://jliljebl.github.io/flowblade/features.html">FEATURES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://jliljebl.github.io/flowblade/info.html">ABOUT</a>
+              </li>
+              </ul>
+          
+          </nav>
+    <div class="row">
+
+      
+      <div class="col-sm-2">
+      <div class="sticky-top">
+          <button class="btn btn-defalut btn-block" data-toggle="collapse" data-target="#nav">
+            Contents
+            </button>
+        <nav id="nav" class="collapsabe bg-light navbar-light">
+        <ul class="navbar-nav flex-column ml-3">
+          <il class="nav-item">
+              <a class="nav-link " href="./index.html">
+            Introduction
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="./basicediting.html">
+            Basic Editing
+              </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="./edittools.html">
+            Edit Tools
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link " href="./composedimages.html">
+            Creating Composited Images
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link " href="./filtering.html">
+            Filtering image and audio
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link " href="./advancedediting.html">  
+            Advanced Editing
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="rangelog.html">  
+            Range Log
+            </a>
+          </il>
+          <il>
+              <a class="nav-link active" href="proxyediting.html">
+              Proxy Editing
+              </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="tools.html">  
+            Tools
+            </a>
+          </il>
+          <il class="nav-item">
+              <a class="nav-link" href="rendering.html">  
+            Rendering
+            </a>
+          </il>
+        </ul>
+      </nav>
+      </div>
+    </div>
+      <div class="col-sm-10">
+      <div class="container mt-3">
+            <div class="display-4">Proxy Editing</div>
+
+            <p>
+            Proxy editing is a method of editing in which original media clips are presented on timeline by proxy clips.
+            
+            </p> 
+            
+            <h3>Rationale</h3>
+            <p>
+            Proxy clips used in proxy editing usually have smaller data rate and less CPU intensive decoding. There are two main reasons to use proxy editing:
+            </p>
+            <ul>
+            <li> Original media from which the program is edited makes too high demands for either disk bandwidth or CPU processing power for decoding to enable responsive editing </li>
+            <li> Original is kept on network server, slow external disk or other media with restricted access and does not enable provide responsive editing if accessed directly.</li>
+            </ul>
+            
+            
+            
+            <h3>Generic Proxy Editing workflow</h3>
+            
+            <p>
+            All proxy editing workflows have the same phases:
+            </p>
+            <ol>
+            <li> Render proxy media from original media </li>
+            <li> Replace original media with proxy media </li>
+            <li> Edit using proxy media </li>
+            <li> Replace proxy media with original media </li>
+            <li> Render final program using original media </li>
+            </ol>
+            
+            <h3>Flowblade proxy editing</h3>
+            <ol>
+            <li> Creating Proxy Media</li>
+            <ol>
+            <li> Select <b>Project->Proxy Manager</b> in menu and set proxy file settings in <b>Proxy Encoding</b> area  </li>
+            <li> Select Video Media files in <b>'Media'</b> Panel</li>
+            <li> Press button with proxy file icon next Delete button in 'Media' Panel</li>
+            <li> If Project is already in <b>'Using Proxy Media'</b> proxy mode, timeline clips with original media that had proxy media rendered to will be replaced with proxy media immediately</li>
+            </ol>
+            <li>Converting to use Proxy media</li>
+            <ol>
+            <li> Select <b>Project->Proxy Manager</b> to open Proxy Manager</li>
+            <li> Press <b>Use Proxy Media</b> button</li>
+            </ol>
+            <li>Editing with proxy media</li>
+            <ol>
+            <li> Clips that use proxy media have a blue stripe indicating that status</li>
+            <li> A proxy editing indicator icon is displayed at left bottom corner</li>
+            <li> If new proxy media is rendered timeline clips using the original media in question will be replaced with proxy media immediately</li>
+            <li> Project can be saved normally and converted after load to use original media</li>
+            </ol>
+            <li>Converting to use Original Media</li>
+            <ol>
+            <li> Select <b>Project->Proxy Manager</b> to open Proxy Manager</li>
+            <li> Press <b>Use Original Media</b> button</li>
+            </ol>
+            </ol>
+            <h3>Important notes about Flowblade proxy editing</h3>
+            <div class="alert alert-danger">
+            <li> <b>DESTROYING ANY MEDIA while doing proxy editing WILL PREVENT CONVERTING BACK TO USING ORIGINAL MEDIA</b> </li>
+            <li> <b>It is only possible to use all <i>existing</i> proxy media and clips or all original media</b>. It is not possible to use only some of the created proxy media.</li>
+            
+            </div>
+            <div class="alert alert-secondary">
+            <p>
+            Flowblade uses a programming techique that changes the paths used by media items and clips to point either to hidden proxy media or original media.
+            </p>
+            <p>
+             Changing from one to another is implemented by writing a hidden temporary project file to disk and replacing paths when project is read back. Because of this any missing original media makes conversion back to using original media fail.
+            </p>
+        </div>
+      </div>
+    </div>
+    <footer class="footer text-center bg-light navbar-light">
+        Flowblade Reference Guide v 2.0 19-3-2015.<br>
+        Page made by Bartek Tonia. 
+    </footer>
+  </body>
