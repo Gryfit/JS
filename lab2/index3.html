@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Tytuł strony
+    </title>
+  </head>
+  <body>
+    <main>
+      <h1>
+        Płótno, po którym można rysować, używając JavaScript
+      </h1>
+
+      <canvas id="wykres"
+              width="200"
+              height="300"
+              style="border:1px solid #000000;">
+        Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas"
+      </canvas>
+    </main>
+    <script>
+        var canvas = document.getElementById('wykres');
+        var ctx = canvas.getContext('2d');
+        ctx.fillText("Witaj Świecie", 10, 50); //Wykreślenie podanego tekstu na płótnie
+        //rectangle
+        ctx.fillRect(50,70,100,30);
+        //triangle
+        ctx.beginPath();
+        ctx.moveTo(50,120);
+        ctx.lineTo(100,120);
+        ctx.lineTo(100,200);
+        ctx.fill();
+        //circle
+        var X = 100;
+        var Y = 250;
+        var R = 20;
+        ctx.beginPath();
+        ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+        ctx.fill();
+    </script>
+  </body>
+</html>
