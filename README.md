@@ -1,2 +1,2 @@
-# JS
+# JavaScript
 AGH JS lab
