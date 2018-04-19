@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="style.css"
+          media="screen"
+          type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>
+        The game
+    </title>
+</head>
+<body>
+    <div id="_form_" style="">
+    <form>
+      <input name="name" value="Imie" type="text">
+      <input name="kwadraty" value="ilość kwadratów" type="text">
+      <input name="kolo" value="prędkość ruchu koła" type="text">
+      <input name="licznik" value="prędkość zmiany wartości licznika" type="text">
+      <input type="button" value="Zapisz" onclick="submit_()">
+    </form>
+    </div>
+    <div class="row">
+    <div class="col-lg">
+        <canvas id="Canvas" width="500" height="500" ></canvas>
+    </div>
+    <div class="col-sm">
+        <table>
+                <tr>
+                    <td>Time </td>	<td> Points</td>
+                </tr>
+                <tr>
+                    <td id="Timeleft">60</td>	<td id="PointsCurrent">0</td>
+                </tr>
+        </table>
+        <br>
+        <table>
+                <tr>
+                    <td>Best players</td>
+                </tr>
+                <tr>
+                    <td id="Player1"> - </td>	<td id="Points1">0</td>
+                </tr>
+                <tr>
+                    <td id="Player2"> - </td>	<td id="Points2">0</td>
+                </tr>
+                <tr>
+                    <td id="Player3"> - </td>	<td id="Points3">0</td>
+                </tr>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
