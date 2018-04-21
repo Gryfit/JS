@@ -65,21 +65,6 @@ function mouseMove(evt) {
 }
 
 function submit_(){
-    numSquares = 10
-    counterspeed = 0.1
-
-    ball = {
-        x: canvas.width/2,
-        y: canvas.height/2,
-        speed: 10,
-        radius: 10
-    }
-
-    mouseVector = {x:0, y:0};
-    dx = ball.speed * mouseVector.x;
-    dy = ball.speed * mouseVector.x;
-    player = {name: "", points: 0}
-    squeres = []
     var form = document.forms[0];
     player.name = form.name.value;
     numSquares = parseInt(form.kwadraty.value)
@@ -168,13 +153,12 @@ function drawBall() {
     if(ball.y + dy > canvas.height-ball.radius || ball.y + dy < ball.radius) {
         ball.y = canvas.height -ball.y
     }
-    var i =0;
-    for(;i<numSquares;i++){
+    let i;
+    for(i=0;i<numSquares;i++){
         if(ball.x + dx + (ball.radius/2) >= squeres[i].x
             && ball.x + dx + (ball.radius/2) <= squeres[i].x  + 30
             && ball.y + dy + (ball.radius/2) >= squeres[i].y
             && ball.y + dy + (ball.radius/2) <= squeres[i].y  + 30){
-                    console.log(ball.x + dx + ball.radius, ball.y + dy + ball.radius)
                     player.points +=  Math.round(squeres[i].counter)
                     squeres[i] = new Squere(counterspeed, (Math.random() * (canvas.width-60))+30, (Math.random() * (canvas.height-60))+30, now, 60)
                     document.getElementById("PointsCurrent").textContent = player.points;
@@ -183,24 +167,21 @@ function drawBall() {
 }
 
 var end
-var lvls = 3
+var lvls = 1
 
 function draw(timestamp) {
     var now =new Date().getTime()
     if(end - now <=0){
         window.cancelAnimationFrame(RID)
-        lvls -=1
-        if(lvls>0){
-            startLevel(3 - lvls)
-        }else{
-            startLevel(lvls)
-            return;
-        }
+        console.log(lvls);
+        lvls +=1;
+        startLevel(lvls)
+        return;
     }
     document.getElementById("Timeleft").textContent = Math.round((end - now)/1000).toString();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var i =0
-    for(;i<numSquares;i++){
+    let i;
+    for(i=0;i<numSquares;i++){
         ctx.beginPath();
         ctx.rect(squeres[i].x, squeres[i].y,30,30);
         ctx.fillStyle = squeres[i].counter>0?"#59F441":"#E52A09";
@@ -255,38 +236,57 @@ function startLevel(lvl){
     var dk = 2;
     var dspeed = 1;
     var dcounterspeed = 1;
+    var i
+    end = new Date().getTime() + (60 * 1000)
+
     switch (lvl) {
         case 1:
-            end = new Date().getTime() + (60 * 1000)
-            var i=0
-            for(;i<numSquares;i++){
+
+            for(i=0;i<numSquares;i++){
                 var t =new Date().getTime()
-                squeres.push(new Squere(counterspeed, (Math.random() * (canvas.width-60))+30, (Math.random() * (canvas.height-60))+30, t, 60))
+                squeres.push(
+                    new Squere(
+                        counterspeed,
+                        (Math.random() * (canvas.width-60))+30,
+                        (Math.random() * (canvas.height-60))+30,
+                        t,
+                        60))
             }
             RID = window.requestAnimationFrame(draw)
             break;
         case 2:
-            squeres.splice(0,squeres.length)
-            end = new Date().getTime() + (60 * 1000)
-            var i=0
-            for(;i<numSquares;i++){
+            squeres.splice(0,numSquares)
+            numSquares +=dk
+            console.log(squeres);
+            for(i=0;i<numSquares;i++){
                 var t =new Date().getTime()
-                squeres.push(new Squere(counterspeed, (Math.random() * (canvas.width-60))+30, (Math.random() * (canvas.height-60))+30, t, 60))
+                squeres.push(
+                    new Squere(
+                        (counterspeed +dcounterspeed),
+                        (Math.random() * (canvas.width-60))+30,
+                        (Math.random() * (canvas.height-60))+30,
+                        t,
+                        60))
             }
             RID = window.requestAnimationFrame(draw)
             break;
         case 3:
-            squeres.splice(0,squeres.length)
-            end = new Date().getTime() + (60 * 1000)
-            var i=0
-            for(;i<numSquares;i++){
+            squeres.splice(0,numSquares)
+            console.log(squeres);
+            numSquares +=dk
+            for(i=0;i<numSquares;i++){
                 var t =new Date().getTime()
-                squeres.push(new Squere(counterspeed, (Math.random() * (canvas.width-60))+30, (Math.random() * (canvas.height-60))+30, t, 60))
+                squeres.push(
+                    new Squere(
+                        (counterspeed + 2* dcounterspeed),
+                        (Math.random() * (canvas.width-60))+30,
+                        (Math.random() * (canvas.height-60))+30,
+                        t,
+                        60))
             }
             RID = window.requestAnimationFrame(draw)
             break;
         default:
-            window.cancelAnimationFrame(RID)
             window.alert("GAME OVER")
             Players.push(player);
             Players.sort((a,b) => a.points > b.points ? 1 : a.points < b.points ? -1 : 0)
@@ -301,7 +301,6 @@ function startLevel(lvl){
             if(Players.length >1) document.getElementById("Points2").textContent = Players[1].points;
             if(Players.length >2) document.getElementById("Points3").textContent = Players[2].points;
             document.getElementById("_form_").removeAttribute("style");
-
             return;
     }
 }
