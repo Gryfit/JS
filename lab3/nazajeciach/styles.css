@@ -1,0 +1,41 @@
+.view header{
+    background-color: #EFF;
+    border: 3px solid #A8A8A8;
+}
+
+.view header h1{
+    text-align: center;
+    padding: 10px;
+}
+
+.view nav {
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 3px solid black;
+}
+
+.view nav li{
+    display: inline-block;
+}
+
+.view aside{
+    display: inline-block;
+    position: fixed;
+    right: 25%;
+    padding: 30px;
+    background-color: #EFF;
+    border: 2px solid #A8A8A8;
+}
+
+.view main{
+    display: inline-block;
+    position: fixed;
+    left:0;
+    background-color: #EFF;
+    border: 2px solid #A8A8A8;
+}
+.move {
+    position: absolute;
+    left: 10;
+    top: 10;
+}
