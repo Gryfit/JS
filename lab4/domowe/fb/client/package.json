@@ -1,0 +1,24 @@
+{
+  "name": "filebrowser",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4",
+    "react-split-pane": "^0.1.77"
+  },
+  "main": "src/main.js",
+  "proxy": "http://localhost:5000/",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}

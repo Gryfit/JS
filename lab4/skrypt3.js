@@ -61,6 +61,6 @@ http.createServer((request, response) => {
     response.end();
     console.log('Wysyłanie odpowiedzi');
   }
-}).listen(8081);
+}).listen(8083);
 console.log('Uruchomiono serwer na porcie 8080');
 console.log("Aby zakończyć działanie serwera, naciśnij 'CTRL+C'");
