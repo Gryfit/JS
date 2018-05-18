@@ -1,0 +1,14 @@
+mongodb:
+komenda do podglądania: mongo 
+use db1 db.collection_name.find().pretty()
+
+komenda do startu: 
+mongod
+
+server
+domowe2/my-app/src/server: node server
+
+react
+domowe2/my-app: npm start
+
+
