@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Eq
+    </title>
+    <script>
+
+        function parse_op(op){
+            switch (op) {
+                case "+":
+                    return (_,__)=>_+__
+                case "-":
+                    return (_,__)=>_-__
+                case "/":
+                    return (_,__)=>_/__
+                case "*":
+                    return (_,__)=>_*__
+            }
+        }
+
+        function send(){
+            const myRequest = new Request('/nums');
+            fetch(myRequest)
+                .then(function (response){
+                    return response.json();
+                })
+                .then(function(json){
+                    eq = json.num1 + json.op + json.num2
+                    document.getElementById('eq').innerHTML = eq
+                    res = parse_op(json.op)(json.num1,json.num2)
+                    document.getElementById('res').innerHTML = res
+                    console.log(eq,res)
+                })
+        }
+    </script>
+  </head>
+  <body>
+    <main>
+        <button onclick="send()">SEND</button>
+        <div id="eq"></div>
+        <div id="res"></div>
+    </main>
+  </body>
+</html>
