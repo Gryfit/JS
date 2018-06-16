@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Formularz
+    </title>
+    <script>
+        var xml = require('xml')
+        var __x = 0
+        var __y = 0
+        function draw_line(){
+            var example = document.getElementById('canv');
+            var ctx = example.getContext('2d');
+            const myRequest = new Request('/point');
+            fetch(myRequest)
+                .then(function (response){
+                    return response.json();
+                })
+                .then(function(json){
+                    ctx.beginPath();
+                    ctx.moveTo(__x,__y);
+                    ctx.lineTo(json.x,json.y);
+                    ctx.strokeStyle=json.color;
+                    ctx.stroke();
+                    __x = json.x
+                    __y = json.y
+                    console.log(json.x,json.y,json.color)
+                })
+        }
+        function send_form(){
+            const myRequest = new Request('/submit?num='+ document.getElementById('num').value, {method: 'POST'});
+            fetch(myRequest)
+                .then(function (response){
+                    return response.xml();
+                })
+                .then(function(_xml_){
+                    
+                })
+        }
+    </script>
+</head>
+<body>
+  <main>
+      <canvas id="canv" width="500" height="500">
+          Twoja przeglądarka nie obsługuje elementu Canvas.
+      </canvas>
+      <form>
+          <input type="text" id="num">
+          <input type="button" value="SEND" onclick="send_form()">
+      </form>
+  </main>
+</body>
+</html>
